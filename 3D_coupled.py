@@ -99,6 +99,7 @@ s0   = Function(FiberSpace)
 n0   = Function(FiberSpace)
 phih = Function(Mh)
 
+# Calculate fiber position within ventricular wall by solving a mixed Poisson problem
 phif = TrialFunction(Mh)
 psif = TestFunction(Mh)
 AAf = dot(grad(phif),grad(psif))*dx
@@ -111,14 +112,18 @@ bcphi = [bcphiEp,bcphiEn]
 solve(AAf == BBf, phih, bcphi, \
       solver_parameters={'linear_solver':'lu'})
 
+# Calculate sheetlet directions
 s0 = normalizeAndProj_vec(grad(phih))
 
 k0 = Constant((0.0,1.0,0.0))
 kp = normalize_vec(k0 - dot(k0,s0) * s0)
 f0flat = cross(s0, kp)
 
+# Limits of fiber rotation
 thetaEpi = Constant(-50.0)
 thetaEndo = Constant(60.0)
+
+# Rotate fibers according to their position within ventricular wall
 f0 = normalizeAndProj_vec(f0flat*cos(varAngle(phih)) \
                           + cross(s0,f0flat)*sin(varAngle(phih)) \
                           + s0 * dot(s0,f0flat)*(1.0-cos(varAngle(phih))))
@@ -209,6 +214,7 @@ ytop = Constant(2.5)
 ybot = Constant(-4.3)
 totl  = Constant(ytop - ybot)
 
+# Define spatially-dependent stiffness coefficient
 robin = Expression("robinbot*(ytop-x[1])/totl + robintop*(x[1]-ybot)/totl", \
                    totl = totl, ytop=ytop, ybot = ybot, robintop=robintop, \
                    robinbot=robinbot, degree=3)
