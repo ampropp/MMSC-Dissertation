@@ -256,6 +256,19 @@ def P(gamma,u):
                       + a_fs*I8_fse*exp(b_fs*subplus(I8_fse)**2)*(outer(F*f0,F*s0) \
                                                                   + outer(F*s0,F*f0))
     Cauchy = sHOActiveStrain - p*I # Cauchy stress tensor
+    ###################
+    # VISCOELASTICITY #
+    ###################
+    ## Uncomment the following code to modify the model from hyperelastic to viscoelastic
+    #Fdot = grad(u-uold)/Dt
+    #gradv = Fdot*inv(F)
+    #d = 0.5*(gradv + gradv.T)
+    #Bdot = gradv*B + B*gradv.T
+    #Cdot = 2.0*F.T*d*F
+    #Idot = tr(Cdot)
+    #Visco =  gam*exp(beta*Idot)*Bdot
+    #Cauchy = Cauchy + Visco
+	
     return J * Cauchy * invF.T # pull-back to reference configuration
 
 
