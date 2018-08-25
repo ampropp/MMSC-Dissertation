@@ -1,0 +1,18 @@
+CREATED BY ADRIENNE PROPP AND RICARDO RUIZ BAIER
+AUGUST 2018
+
+
+This repository contains examples of code used
+to produce the results in Adrienne Propp's
+MSc dissertation at the University of Oxford,
+titled "Simulating 3D orthotropic cardiac electromechanics
+incorporating stress-assisted conductivities",
+supervised by Ricardo Ruiz-Baier.
+
+
+Table of contents:
+2D fully coupled hyperlastic, with optional modification to viscoelastic
+3D fully coupled hyperelastic, with optional modification to viscoelastic
+3D mesh files
+
+
