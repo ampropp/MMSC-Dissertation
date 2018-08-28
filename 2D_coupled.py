@@ -23,7 +23,7 @@ parameters["form_compiler"]["cpp_optimize"] = True
 
 # ********* Problem-specific parameters ********* #
 L = 12.0; nps = 100
-dt = 0.2; Tfinal = 600.0 # change as necessary; time in ms
+dt = 0.3; Tfinal = 600.0 # change as necessary; time in ms
 frequencyMech = 5.0; Dt = dt*frequencyMech # mechanics will be solved on coarser timestep than electrophysiology
 
 
