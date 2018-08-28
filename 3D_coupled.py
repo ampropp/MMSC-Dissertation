@@ -25,7 +25,7 @@ parameters["form_compiler"]["quadrature_degree"] = 2
 
 
 # ********* Problem-specific parameters ********* #
-t = 0.0; dt = 0.25; Tfinal = 1200  # change as necessary; time in ms
+t = 0.0; dt = 0.25; Tfinal = 600  # change as necessary; time in ms
 frequencyMech = 10.0; Dt = dt*frequencyMech # mechanics will be solved on coarser timestep than electrophysiology
 
 
