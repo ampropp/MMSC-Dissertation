@@ -210,7 +210,7 @@ def DTens(v,u,PI):
 	SAD = D2*invF*PI*invF.T
 	return self_diff + aniso + SAD
 
-alpha = Constant(0.01) # determines relationship between calcium (here, r3)  and active tension Ta
+alpha = Constant(0.5) # determines relationship between calcium (here, r3)  and active tension Ta
 calcium = Function(Mh)
 calcium = r3old
 
