@@ -29,7 +29,7 @@ frequencyMech = 5.0; Dt = dt*frequencyMech # mechanics will be solved on coarser
 
 # ********* Create mesh ********* #
 domain = Rectangle(Point(0,0),Point(L,L))
-mesh = generage_mesh(domain,nps)
+mesh = generate_mesh(domain,nps)
 he = FacetArea(mesh)
 
 # ********* Define file to save results ********* #
@@ -210,7 +210,7 @@ def DTens(v,u,PI):
 	SAD = D2*invF*PI*invF.T
 	return self_diff + aniso + SAD
 
-alpha = Constant(0.01) # determines relationship between calcium (here, r3)  and active tension Ta
+alpha = Constant(0.5) # determines relationship between calcium (here, r3)  and active tension Ta
 calcium = Function(Mh)
 calcium = r3old
 
