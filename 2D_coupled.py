@@ -29,7 +29,7 @@ frequencyMech = 5.0; Dt = dt*frequencyMech # mechanics will be solved on coarser
 
 # ********* Create mesh ********* #
 domain = Rectangle(Point(0,0),Point(L,L))
-mesh = generage_mesh(domain,nps)
+mesh = generate_mesh(domain,nps)
 he = FacetArea(mesh)
 
 # ********* Define file to save results ********* #
