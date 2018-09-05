@@ -61,7 +61,7 @@ def subplus(u) :
 
 # ********* Define elements ********* #
 P1 = FiniteElement("CG", mesh.ufl_cell(), 1) # Pressure, ionic quantities
-#P1v = VectorElement("CG", mesh.ufl_cell(), 1) #
+P1v = VectorElement("CG", mesh.ufl_cell(), 1) #
 P2v = VectorElement("CG", mesh.ufl_cell(), 2) # Displacement (vector)
 
 
@@ -236,7 +236,7 @@ J = variable(J); C = variable(C)
 
 # Define invariants
 I1 = tr(C) # isometric invariant
- I8_fs = inner(f0, C*s0); I4_f = inner(f0, C*f0); I4_s = inner(s0, C*s0) # anisotropic pseudoinvariants
+I8_fs = inner(f0, C*s0); I4_f = inner(f0, C*f0); I4_s = inner(s0, C*s0) # anisotropic pseudoinvariants
 
 k = Constant(0.3) # transverse fiber stress as a fraction of axial tension
 propS = Constant(1.0)
@@ -360,7 +360,7 @@ while (t <= Tfinal):
 		r3.rename("r3","r3"); fileO.write(r3,t)
 		f0.rename("f0","f0"); fileO.write(f0,t)
 		s0.rename("s0","s0"); fileO.write(s0,t)
-		if (t >= tMech + frequencyMech);
+		if (t >= tMech + frequencyMech):
 			u.rename("u","u"); fileO.write(u,t)
 			p.rename("p","p"); fileO.write(p,t)
 			gamma.rename("gam","gam"); fileO.write(gamma,t)
